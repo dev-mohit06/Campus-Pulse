@@ -205,7 +205,7 @@ const animate = useCallback((ctx, canvas) => {
         className="relative z-10 h-full flex items-center"
         style={{ y, opacity }}
       >
-        <div className="container mx-auto px-8">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
@@ -213,10 +213,13 @@ const animate = useCallback((ctx, canvas) => {
             className="max-w-4xl"
           >
             <motion.h1 
-              className="text-9xl font-bold mb-6 leading-tight"
+              className="text-5xl md:text-7xl lg:text-9xl font-bold mb-4 sm:mb-6 leading-tight"
               style={{
                 textShadow: '0 0 20px rgba(255,255,255,0.3)',
-                WebkitTextStroke: '2px rgba(255,255,255,0.1)'
+                WebkitTextStroke: '1px rgba(255,255,255,0.1)',
+                '@media (min-width: 768px)': {
+                  WebkitTextStroke: '2px rgba(255,255,255,0.1)'
+                }
               }}
               animate={{
                 textShadow: [
@@ -237,17 +240,40 @@ const animate = useCallback((ctx, canvas) => {
             </motion.h1>
 
             <motion.p 
-              className="text-2xl text-white/80 max-w-xl backdrop-blur-sm bg-white/5 p-6 rounded-lg"
+              className="text-lg md:text-xl lg:text-2xl text-white/80 max-w-xl backdrop-blur-sm bg-white/5 p-4 sm:p-6 rounded-lg"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.8 }}
             >
               Where every moment becomes a memory, and every event tells a story.
             </motion.p>
+
+            {/* Stats cards */}
+            <div className="mt-8 flex flex-row space-x-6 mb-8">
+              <motion.div
+                className="backdrop-blur-lg bg-white/5 p-3 sm:p-4 rounded-lg border border-white/10"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2 }}
+              >
+                <div className="text-xl sm:text-3xl font-bold">2+</div>
+                <div className="text-xs sm:text-sm text-white/60">Active Events</div>
+              </motion.div>
+              
+              <motion.div
+                className="backdrop-blur-lg bg-white/5 p-3 sm:p-4 rounded-lg border border-white/10"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.4 }}
+              >
+                <div className="text-xl sm:text-3xl font-bold">2K+</div>
+                <div className="text-xs sm:text-sm text-white/60">Students</div>
+              </motion.div>
+            </div>
             
-            <div className="mt-12 flex space-x-6">
+            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
               <motion.button
-                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium text-lg relative overflow-hidden group"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium text-base sm:text-lg relative overflow-hidden group w-full sm:w-auto text-center"
                 variants={buttonHoverVariants}
                 whileHover="hover"
                 whileTap="tap"
@@ -262,13 +288,13 @@ const animate = useCallback((ctx, canvas) => {
               </motion.button>
               
               <motion.button
-                className="px-8 py-4 bg-white/10 backdrop-blur-lg rounded-full font-medium text-lg border border-white/20 hover:bg-white/20 transition-colors"
+                className="px-6 sm:px-8 py-3 sm:py-4 bg-white/10 backdrop-blur-lg rounded-full font-medium text-base sm:text-lg border border-white/20 hover:bg-white/20 transition-colors w-full sm:w-auto text-center"
                 variants={buttonHoverVariants}
                 whileHover="hover"
                 whileTap="tap"
               >
-                <a href="https://linkedin.com/in/mohit-paddhariya">
-                  Designe & Developed by Mohit Paddhariya
+                <a href="https://linkedin.com/in/mohit-paddhariya" className="block truncate">
+                  Designed & Developed by Mohit
                 </a>
               </motion.button>
             </div>
@@ -277,15 +303,15 @@ const animate = useCallback((ctx, canvas) => {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-12 right-12 z-10"
+        className="absolute bottom-8 sm:bottom-12 right-4 sm:right-12 z-10"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1 }}
       >
-        <a href="#events" className='flex items-center space-x-6'>
-          <div className="text-sm font-medium opacity-60">Scroll to discover</div>
+        <a href="#events" className='flex items-center space-x-4 sm:space-x-6'>
+          <div className="text-xs sm:text-sm font-medium opacity-60">Scroll to discover</div>
           <motion.div
-            className="w-12 h-12 rounded-full border-2 border-white/30 flex items-center justify-center"
+            className="w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 border-white/30 flex items-center justify-center"
             variants={floatingVariants}
             animate="animate"
             transition={{ repeat: Infinity, duration: 2 }}
@@ -294,30 +320,7 @@ const animate = useCallback((ctx, canvas) => {
           </motion.div>
         </a>
       </motion.div>
-
-      <div className="absolute top-1/4 right-12 z-10 space-y-6">
-        <motion.div
-          className="backdrop-blur-lg bg-white/5 p-4 rounded-lg border border-white/10"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1.2 }}
-        >
-          <div className="text-3xl font-bold">2+</div>
-          <div className="text-sm text-white/60">Active Events</div>
-        </motion.div>
-        
-        <motion.div
-          className="backdrop-blur-lg bg-white/5 p-4 rounded-lg border border-white/10"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1.4 }}
-        >
-          <div className="text-3xl font-bold">2K+</div>
-          <div className="text-sm text-white/60">Students</div>
-        </motion.div>
-      </div>
     </div>
   );
 };
-
 export default HeroSection;
