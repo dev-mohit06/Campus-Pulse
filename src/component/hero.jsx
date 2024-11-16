@@ -247,31 +247,8 @@ const animate = useCallback((ctx, canvas) => {
             >
               Where every moment becomes a memory, and every event tells a story.
             </motion.p>
-
-            {/* Stats cards */}
-            <div className="mt-8 flex flex-row space-x-6 mb-8">
-              <motion.div
-                className="backdrop-blur-lg bg-white/5 p-3 sm:p-4 rounded-lg border border-white/10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.2 }}
-              >
-                <div className="text-xl sm:text-3xl font-bold">2+</div>
-                <div className="text-xs sm:text-sm text-white/60">Active Events</div>
-              </motion.div>
-              
-              <motion.div
-                className="backdrop-blur-lg bg-white/5 p-3 sm:p-4 rounded-lg border border-white/10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.4 }}
-              >
-                <div className="text-xl sm:text-3xl font-bold">2K+</div>
-                <div className="text-xs sm:text-sm text-white/60">Students</div>
-              </motion.div>
-            </div>
             
-            <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+            <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
               <motion.button
                 className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full font-medium text-base sm:text-lg relative overflow-hidden group w-full sm:w-auto text-center"
                 variants={buttonHoverVariants}
@@ -301,6 +278,52 @@ const animate = useCallback((ctx, canvas) => {
           </motion.div>
         </div>
       </motion.div>
+
+      {/* Stats Cards - Positioned absolutely for desktop */}
+      <div className="fixed top-[150px] right-8 z-20 hidden lg:block space-y-6">
+        <motion.div
+          className="backdrop-blur-lg bg-white/5 p-4 rounded-lg border border-white/10"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.2 }}
+        >
+          <div className="text-3xl font-bold">2+</div>
+          <div className="text-sm text-white/60">Active Events</div>
+        </motion.div>
+        
+        <motion.div
+          className="backdrop-blur-lg bg-white/5 p-4 rounded-lg border border-white/10"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 1.4 }}
+        >
+          <div className="text-3xl font-bold">2K+</div>
+          <div className="text-sm text-white/60">Students</div>
+        </motion.div>
+      </div>
+
+      {/* Stats Cards - Mobile version */}
+      <div className="lg:hidden fixed top-[120px] right-4 z-20 flex space-x-4">
+        <motion.div
+          className="backdrop-blur-lg bg-white/5 p-3 rounded-lg border border-white/10"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.2 }}
+        >
+          <div className="text-xl font-bold">2+</div>
+          <div className="text-xs text-white/60">Active Events</div>
+        </motion.div>
+        
+        <motion.div
+          className="backdrop-blur-lg bg-white/5 p-3 rounded-lg border border-white/10"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4 }}
+        >
+          <div className="text-xl font-bold">2K+</div>
+          <div className="text-xs text-white/60">Students</div>
+        </motion.div>
+      </div>
 
       <motion.div
         className="absolute bottom-8 sm:bottom-12 right-4 sm:right-12 z-10"
