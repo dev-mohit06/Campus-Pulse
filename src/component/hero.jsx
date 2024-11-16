@@ -239,6 +239,29 @@ const animate = useCallback((ctx, canvas) => {
               </span>
             </motion.h1>
 
+            {/* Stats Cards for Mobile */}
+            <div className="grid grid-cols-2 gap-4 mb-6 lg:hidden">
+              <motion.div
+                className="backdrop-blur-lg bg-white/5 p-3 rounded-lg border border-white/10"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2 }}
+              >
+                <div className="text-2xl font-bold">2+</div>
+                <div className="text-xs text-white/60">Active Events</div>
+              </motion.div>
+              
+              <motion.div
+                className="backdrop-blur-lg bg-white/5 p-3 rounded-lg border border-white/10"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.4 }}
+              >
+                <div className="text-2xl font-bold">2K+</div>
+                <div className="text-xs text-white/60">Students</div>
+              </motion.div>
+            </div>
+
             <motion.p 
               className="text-lg md:text-xl lg:text-2xl text-white/80 max-w-xl backdrop-blur-sm bg-white/5 p-4 sm:p-6 rounded-lg"
               initial={{ opacity: 0, x: -50 }}
@@ -279,8 +302,8 @@ const animate = useCallback((ctx, canvas) => {
         </div>
       </motion.div>
 
-      {/* Stats Cards - Positioned absolutely for desktop */}
-      <div className="fixed top-[150px] right-8 z-20 hidden lg:block space-y-6">
+      {/* Stats Cards - Desktop only */}
+      <div className="absolute top-[150px] right-8 z-20 hidden lg:block space-y-6">
         <motion.div
           className="backdrop-blur-lg bg-white/5 p-4 rounded-lg border border-white/10"
           initial={{ opacity: 0, x: 50 }}
@@ -299,29 +322,6 @@ const animate = useCallback((ctx, canvas) => {
         >
           <div className="text-3xl font-bold">2K+</div>
           <div className="text-sm text-white/60">Students</div>
-        </motion.div>
-      </div>
-
-      {/* Stats Cards - Mobile version */}
-      <div className="lg:hidden fixed top-[120px] right-4 z-20 flex space-x-4">
-        <motion.div
-          className="backdrop-blur-lg bg-white/5 p-3 rounded-lg border border-white/10"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2 }}
-        >
-          <div className="text-xl font-bold">2+</div>
-          <div className="text-xs text-white/60">Active Events</div>
-        </motion.div>
-        
-        <motion.div
-          className="backdrop-blur-lg bg-white/5 p-3 rounded-lg border border-white/10"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.4 }}
-        >
-          <div className="text-xl font-bold">2K+</div>
-          <div className="text-xs text-white/60">Students</div>
         </motion.div>
       </div>
 
